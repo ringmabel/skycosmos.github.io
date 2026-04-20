@@ -1,185 +1,309 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dream Profile</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dream Profile</title>
 
-<style>
-body {
-    <style>
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Pretendard', sans-serif;
-    color: #333;
-    background:
-        radial-gradient(circle at top, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 35%),
-        linear-gradient(180deg, #cfe8ff 0%, #eaf4ff 35%, #f8fbff 70%, #ffffff 100%);
-    background-attachment: fixed;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
 
-header {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
+    body {
+      font-family: "Pretendard", "Malgun Gothic", sans-serif;
+      color: #2f2f2f;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 30%),
+        linear-gradient(180deg, #cfe8ff 0%, #e8f3ff 45%, #f7fbff 75%, #ffffff 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
+    .container {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
+    header {
+      text-align: center;
+      padding: 72px 0 36px;
+    }
 
-nav button,
-.music-btn {
-    padding: 10px 16px;
-    border-radius: 20px;
-    border: none;
-    background: rgba(255,255,255,0.9);
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: #2e2f36;
+    }
 
-.section {
-    display: none;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    background: rgba(255,255,255,0.92);
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    line-height: 1.8;
-}
+    .subtitle {
+      margin: 0;
+      font-size: 15px;
+      color: #4e5a6a;
+    }
 
-.active {
-    display: block;
-}
+    .top-controls {
+      display: flex;
+      justify-content: center;
+      margin: 8px 0 24px;
+    }
 
-details {
-    margin-bottom: 15px;
-}
+    .music-btn {
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
 
-summary {
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px 14px;
-    background: #eef6ff;
-    border-radius: 10px;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
 
-.top-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-</style>
-}
-</style>
+    nav button {
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    nav button:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      display: none;
+      width: 100%;
+      background: rgba(255,255,255,0.94);
+      border-radius: 24px;
+      padding: 28px 26px;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+      line-height: 1.9;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 24px;
+      color: #2f3440;
+    }
+
+    .section p {
+      margin: 0 0 12px;
+      word-break: keep-all;
+    }
+
+    .section strong {
+      color: #20242c;
+    }
+
+    details {
+      margin-bottom: 14px;
+      background: #f6fbff;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 700;
+      background: #eef6ff;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .detail-content {
+      padding: 14px 16px 4px;
+    }
+
+    .footer-space {
+      height: 40px;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-top: 56px;
+      }
+
+      .section {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      nav button,
+      .music-btn {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <h1>✦ Dream Profile ✦</h1>
+      <p class="subtitle">개인 드림 성향 정리 공간</p>
+    </header>
 
-<header>
-    <h1>✦ Dream Profile ✦</h1>
-    <p>개인 드림 성향 정리 공간</p>
-</header>
+    <div class="top-controls">
+      <button class="music-btn" onclick="toggleMusic()">🎵 BGM 재생 / 정지</button>
+    </div>
 
-<nav>
-    <button onclick="show('dream')">드림</button>
-    <button onclick="show('social')">교류</button>
-    <button onclick="show('genre')">장르</button>
-    <button onclick="show('etc')">기타</button>
-    <button onclick="show('reject')">받지않음</button>
-    <button onclick="show('ng')">NG</button>
-</nav>
+    <nav>
+      <button onclick="showSection('dream')">드림</button>
+      <button onclick="showSection('social')">교류</button>
+      <button onclick="showSection('genre')">장르</button>
+      <button onclick="showSection('etc')">기타</button>
+      <button onclick="showSection('reject')">받지 않음</button>
+      <button onclick="showSection('ng')">NG</button>
+    </nav>
 
-<!-- 드림 -->
-<div id="dream" class="section active">
-<h2>드림에 관하여</h2>
+    <section id="dream" class="section active">
+      <h2>드림에 관하여</h2>
+      <p><strong>친한 지인 외의 장르 무관 1T1D 하지 않습니다.</strong> 저도 안 해주셔도 됩니다. 배려를 받고 싶으시면 상호배려로 부탁드립니다.</p>
+      <p>드림 지우기, 견제, 대리견제 등 드림판 관련 논란이 되는 모든 것을 발견할 시 블락으로 대응합니다.</p>
+      <p>겹드림 받지 않습니다. 탐라 밖 겹드림에 관심 없으니 관련 이야기 꺼내지 말아주세요.</p>
+      <p><strong>지오토, 암굴왕, 카자마 드림은 극온리로 동담불가입니다.</strong> 발견 시 블락+뮤트, 단어뮤트까지 해둡니다. 직멘만 하지 마세요.</p>
+    </section>
 
-<p>친한 지인 외 1T1D 하지 않습니다. 상호배려 부탁드립니다.</p>
-<p>드림 지우기, 견제 등 관련 문제 발견 시 블락합니다.</p>
-<p>겹드림 받지 않으며 관련 언급 자제해주세요.</p>
-<p><b>지오토, 암굴왕, 카자마 드림 극온리 (동담불가)</b></p>
+    <section id="social" class="section">
+      <h2>교류에 관하여</h2>
+      <p>교류 잘하진 못합니다. 기력 없어서 할 말만 하고 가는 편이에요. 상호 마리모 좋아합니다.</p>
+      <p>멘션, 마음, 리트윗, 인용 전부 잘 안 합니다. 정말 어쩌다 한 번 체력이 될 때나 합니다.</p>
+      <p>제 트윗에도 흔적 안 남겨주셔도 됩니다.</p>
+      <p>급한 연락은 <strong>디엠보다 오픈채팅</strong>이 확인 빠릅니다.</p>
+      <p>교류 문제로 블언블, 블락 안 합니다. 제가 먼저 정리했다면 성향 차이일 가능성이 큽니다.</p>
+      <p>불편해지시면 편하게 트위터 기능 사용해주세요. 허공 저격으로 눈치 주는 거 싫어합니다.</p>
+      <p>친분 상관 없이 <strong>모든 트친들의 리트윗을 꺼둡니다.</strong> 봐야 할 트윗이 있다면 인용이나 멘션으로 언급해주세요.</p>
+    </section>
 
-</div>
+    <section id="genre" class="section">
+      <h2>장르에 관하여</h2>
 
-<!-- 교류 -->
-<div id="social" class="section">
-<h2>교류</h2>
+      <details open>
+        <summary>드림 목록</summary>
+        <div class="detail-content">
+          <p><strong>암굴왕 에드몽 단테스/몬테 크리스토 X 데아 플뢰르</strong> (극온리)</p>
+          <p><strong>샤를마뉴 X 사쿠라기 스이</strong> (온리)</p>
+          <p>아서 펜드래건 X 사카키바야시 리유나</p>
+          <p>가웨인 X 코바야시 토모에</p>
+          <p>카르나 X 노아 + 두르가</p>
+          <p>키르슈타리아 보다임 X 카미야 이로하 (생각중)</p>
+          <p>후루야 레이 X 이초랑 (온리) + 경찰 동기조</p>
+        </div>
+      </details>
 
-<p>교류를 활발히 하는 편은 아닙니다. 가볍게 상호 마리모 선호합니다.</p>
-<p>멘션/마음/RT 거의 하지 않습니다.</p>
-<p>급한 연락은 오픈채팅이 더 빠릅니다.</p>
-<p>성향 차이 시 조용히 정리합니다.</p>
+      <details>
+        <summary>최근 덕질 장르</summary>
+        <div class="detail-content">
+          <p><strong>가정교사 히트맨 리본</strong>, SVT, <strong>규현</strong>, 뮤지컬, <strong>페그오</strong>, 월드 트리거, 나츠메 우인장 등</p>
+          <p>정말 많은 장르를 옅게 파고 있습니다. 주 언급 장르는 늘 바뀝니다.</p>
+          <p><strong>3D, 뮤지컬의 경우</strong> 노래를 즐기거나 여유 될 때 멤버십 결제를 하는 정도입니다.</p>
+          <p><strong>규현, 승관의 경우 나페스 합니다.</strong> 불편하시면 피해주세요.</p>
+          <p><strong>페그오의 경우</strong> 2026.04.15 기준 주장2 이드까지 완료 했습니다.</p>
+        </div>
+      </details>
 
-</div>
+      <details>
+        <summary>최애 / 드림 관련 메모</summary>
+        <div class="detail-content">
+          <p>최애는 암굴왕, 카르나, 아서, 가웨인, 키르슈타리아, 세탄타, 샤를마뉴 입니다.</p>
+          <p>암굴왕, 샤를마뉴 외에는 겹드림 상관 없지만 굳이 받진 않습니다.</p>
+          <p><strong>암굴왕 드림의 경우 동담불가 극온리입니다.</strong></p>
+          <p>월드 트리거, 나츠메 우인장은 오래 애정해온 작품입니다. 드림 있지만 언급은 거의 없습니다.</p>
+        </div>
+      </details>
+    </section>
 
-<!-- 장르 -->
-<div id="genre" class="section">
-<h2>장르</h2>
+    <section id="etc" class="section">
+      <h2>그 외에 관하여</h2>
+      <p>기본적으로 좋아하는 걸 얘기하고 보는 계정입니다.</p>
+      <p>커미션 넣는 걸 좋아해서 자주 넣고 있습니다. 하지만 자주 올리진 않습니다.</p>
+      <p>화가 많은 편입니다. 욕도 많이 합니다. 불편하면 트위터 기능 사용해주세요.</p>
+      <p>탐라에 본인과 맞지 않는 것이 들어온다면 먼저 트위터 기능 사용 후 말씀해주세요.</p>
+      <p>제가 편하게 쓰는 계정이기에 간섭하지 말아주세요. 불편하면 먼저 피하시면 됩니다.</p>
+      <p><strong>파이널 판타지 14 장르의 경우</strong> 현재 계신 지인 외에는 메인으로 파시는 분들 절대 받지 않습니다.</p>
+    </section>
 
-<details>
-<summary>드림 목록</summary>
-<p>암굴왕 X 데아 플뢰르 (극온리)</p>
-<p>샤를마뉴 X 사쿠라기 스이 (온리)</p>
-<p>그 외 다수</p>
-</details>
+    <section id="reject" class="section">
+      <h2>받지 않는 드림</h2>
+      <p><strong>파이널 판타지 14 장르 드림러 아예 안 받습니다.</strong></p>
+      <p>명일방주 - 로고스, 파죰카</p>
+      <p>페이트 시리즈 - 아르주나(+얼터), 암굴왕, 아서 펜드래건, 가웨인, 샤를마뉴</p>
+      <p>앙상블 스타즈 - 이츠키 슈, 카제하야 타츠미</p>
+      <p>마법사의 약속 - 오즈</p>
+      <p>상수리나무 아래 - 쿠아헬 리온</p>
+      <p>하이큐!! - 쿠로오 테츠로, 아카아시 케이지</p>
+      <p>빛과 밤의 사랑 - 소휘</p>
+      <p>괴담에 떨어져도 출근은 해야 하는구나 - 최 요원</p>
+      <p>어두운 바다의 등불이 되어 - 신해량</p>
+      <p>SVT - 정한, 호시, 우지, 승관</p>
+      <p>SJ - 규현</p>
+    </section>
 
-<details>
-<summary>덕질 장르</summary>
-<p>리본 / 페그오 / 월드 트리거 / 나츠메 우인장 / SVT / 규현 등</p>
-</details>
+    <section id="ng" class="section">
+      <h2>NG</h2>
+      <p><strong>볼드체 외에는 직멘, 강요만 안 하면 상관 없습니다.</strong></p>
+      <p><strong>가스라이팅, BL, 드림지우기, 과도한 친목질</strong> 등은 NG입니다.</p>
+      <p><strong>가스라이팅:</strong> 관련 요소가 있는 드림, CP를 파시면 찾아오지 말아주세요.</p>
+      <p><strong>BL:</strong> 학생 때 트라우마가 생겨 좋아하지 않습니다. 1차 제외, 직멘 시 블락합니다.</p>
+      <p><strong>드림지우기:</strong> 이미 많이 겪어서 더 이상 보고 싶지 않습니다.</p>
+      <p><strong>드림 논란:</strong> 파쿠리, 뒷담, 견제 등 드림판 논란 전부 언급 자제해주세요.</p>
+    </section>
 
-</div>
+    <div class="footer-space"></div>
+  </div>
 
-<!-- 기타 -->
-<div id="etc" class="section">
-<h2>기타</h2>
+  <audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg" />
+  </audio>
 
-<p>좋아하는 것을 자유롭게 이야기하는 계정입니다.</p>
-<p>욕설 및 감정 표현이 많을 수 있습니다.</p>
-<p>불편 시 트위터 기능 사용해주세요.</p>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-</div>
-
-<!-- 받지 않음 -->
-<div id="reject" class="section">
-<h2>받지 않는 드림</h2>
-
-<p>FF14 드림러 받지 않습니다.</p>
-<p>그 외 특정 캐릭터 다수 존재</p>
-
-</div>
-
-<!-- NG -->
-<div id="ng" class="section">
-<h2>NG</h2>
-
-<p><b>가스라이팅 / BL / 드림지우기 / 과도한 친목 등</b></p>
-<p>직멘 및 강요 시 블락합니다.</p>
-
-</div>
-
-<script>
-function show(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-</script>
-
+    function toggleMusic() {
+      const bgm = document.getElementById('bgm');
+      if (bgm.paused) {
+        bgm.play().catch(() => {
+          alert('브라우저에서 자동 재생이 막혀 있을 수 있어요. 버튼을 한 번 더 눌러보세요.');
+        });
+      } else {
+        bgm.pause();
+      }
+    }
+  </script>
 </body>
 </html>
