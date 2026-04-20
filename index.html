@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dream Profile</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -28,13 +27,13 @@
     }
 
     .container {
-      width: min(920px, calc(100% - 32px));
+      width: min(940px, calc(100% - 32px));
       margin: 0 auto;
     }
 
     header {
       text-align: center;
-      padding: 72px 0 36px;
+      padding: 72px 0 28px;
     }
 
     h1 {
@@ -53,17 +52,62 @@
     .top-controls {
       display: flex;
       justify-content: center;
-      margin: 8px 0 24px;
+      margin: 8px 0 22px;
     }
 
     .music-btn {
       border: none;
       border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      padding: 10px 16px;
+      background: rgba(255,255,255,0.92);
+      padding: 11px 18px;
       font-size: 14px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .music-btn:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+    }
+
+    .link-cards {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0 0 26px;
+    }
+
+    .card {
+      width: 104px;
+      height: 104px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .card-label {
+      font-size: 13px;
+      font-weight: 600;
     }
 
     nav {
@@ -145,7 +189,16 @@
     }
 
     .footer-space {
-      height: 40px;
+      height: 42px;
+    }
+
+    #youtube-player-wrap {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
     }
 
     @media (max-width: 640px) {
@@ -162,18 +215,45 @@
       .music-btn {
         font-size: 13px;
       }
+
+      .card {
+        width: 92px;
+        height: 92px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>✦ SKY COSMOS ✦</h1>
-      <p class="subtitle">샛별이 머무는 곳</p>
+      <h1>✦ Dream Profile ✦</h1>
+      <p class="subtitle">개인 드림 성향 정리 공간</p>
     </header>
 
     <div class="top-controls">
       <button class="music-btn" onclick="toggleMusic()">🎵 BGM 재생 / 정지</button>
+    </div>
+
+    <div class="link-cards">
+      <a href="https://x.com/saesbyeol1024" target="_blank" class="card">
+        <div class="card-icon">✦</div>
+        <div class="card-label">X</div>
+      </a>
+
+      <a href="https://open.kakao.com/o/s1fES6ki" target="_blank" class="card">
+        <div class="card-icon">💬</div>
+        <div class="card-label">Open Chat</div>
+      </a>
+
+      <a href="https://pushoong.com/ask/3822913156/" target="_blank" class="card">
+        <div class="card-icon">❔</div>
+        <div class="card-label">ASK</div>
+      </a>
+
+      <a href="https://skyverus.dothome.co.kr/" target="_blank" class="card">
+        <div class="card-icon">🏠</div>
+        <div class="card-label">Home</div>
+      </a>
     </div>
 
     <nav>
@@ -190,18 +270,19 @@
       <p><strong>친한 지인 외의 장르 무관 1T1D 하지 않습니다.</strong> 저도 안 해주셔도 됩니다. 배려를 받고 싶으시면 상호배려로 부탁드립니다.</p>
       <p>드림 지우기, 견제, 대리견제 등 드림판 관련 논란이 되는 모든 것을 발견할 시 블락으로 대응합니다.</p>
       <p>겹드림 받지 않습니다. 탐라 밖 겹드림에 관심 없으니 관련 이야기 꺼내지 말아주세요.</p>
-      <p><strong>지오토, 암굴왕, 카자마 드림은 극온리로 동담불가입니다.</strong> 발견 시 블락+뮤트, 단어뮤트까지 해둡니다. 직멘만 하지 마세요.</p>
+      <p><strong>지오토, 암굴왕, 카자마 드림은 극온리로 동담불가입니다.</strong> 발견 시 블락+뮤트, 단어뮤트까지 해둡니다. 직멘만 하지 마세요. 트친이 되고 나서 드림 파실 것 같으면 저 블락하고 해주세요.</p>
     </section>
 
     <section id="social" class="section">
       <h2>교류에 관하여</h2>
       <p>교류 잘하진 못합니다. 기력 없어서 할 말만 하고 가는 편이에요. 상호 마리모 좋아합니다.</p>
-      <p>멘션, 마음, 리트윗, 인용 전부 잘 안 합니다. 정말 어쩌다 한 번 체력이 될 때나 합니다.</p>
+      <p>멘션, 마음, 리트윗, 인용 전부 잘 안합니다. 정말 어쩌다 한 번 체력이 될 때나 합니다.</p>
       <p>제 트윗에도 흔적 안 남겨주셔도 됩니다.</p>
       <p>급한 연락은 <strong>디엠보다 오픈채팅</strong>이 확인 빠릅니다.</p>
-      <p>교류 문제로 블언블, 블락 안 합니다. 제가 먼저 정리했다면 성향 차이일 가능성이 큽니다.</p>
-      <p>불편해지시면 편하게 트위터 기능 사용해주세요. 허공 저격으로 눈치 주는 거 싫어합니다.</p>
-      <p>친분 상관 없이 <strong>모든 트친들의 리트윗을 꺼둡니다.</strong> 봐야 할 트윗이 있다면 인용이나 멘션으로 언급해주세요.</p>
+      <p>교류 문제로 블언블, 블락 안합니다. 제가 먼저 정리했다면 성향 차이일 가능성이 큽니다.</p>
+      <p>마찬가지로 제가 불편해지시면 편하게 트위터 기능 사용해주세요. 허공 저격으로 눈치 주는 거 싫어합니다. 발견 시 블락.</p>
+      <p>트정 언급 발견시 먼저 정리합니다. 굳이 언급하면서 눈치 주는 행위 좋아하지 않습니다. 저는 말없이 정리합니다.</p>
+      <p>친분 상관 없이 <strong>모든 트친들의 리트윗을 꺼둡니다.</strong> 제가 봐야할 트윗이 있다면 차라리 인용이나 멘션으로 언급해주세요.</p>
     </section>
 
     <section id="genre" class="section">
@@ -210,12 +291,12 @@
       <details open>
         <summary>드림 목록</summary>
         <div class="detail-content">
-          <p><strong>지오토 X 연채림</strong> (극온리)</p>
           <p><strong>암굴왕 에드몽 단테스/몬테 크리스토 X 데아 플뢰르</strong> (극온리)</p>
           <p><strong>샤를마뉴 X 사쿠라기 스이</strong> (온리)</p>
           <p>아서 펜드래건 X 사카키바야시 리유나</p>
           <p>가웨인 X 코바야시 토모에</p>
-          <p>소지 서번트 X 데미안 + 크립터</p>
+          <p>카르나 X 노아 + 두르가</p>
+          <p>키르슈타리아 보다임 X 카미야 이로하 (생각중)</p>
           <p>후루야 레이 X 이초랑 (온리) + 경찰 동기조</p>
         </div>
       </details>
@@ -223,21 +304,22 @@
       <details>
         <summary>최근 덕질 장르</summary>
         <div class="detail-content">
-          <p><strong>가정교사 히트맨 리본</strong>, SVT, <strong>규현</strong>, 뮤지컬, <strong>페그오</strong>, 월드 트리거, 나츠메 우인장 등</p>
-          <p>정말 많은 장르를 옅게 파고 있습니다. 주 언급 장르는 늘 바뀝니다.</p>
-          <p><strong>3D, 뮤지컬의 경우</strong> 노래를 즐기거나 여유 될 때 멤버십 결제를 하는 정도입니다.</p>
+          <p>정말 많은 장르를 옅게 파고 있습니다. 주 언급 장르는 늘 바뀝니다. 언급 안하고 파는 장르도 있습니다.</p>
+          <p>최근 덕질 중인 장르: <strong>가정교사 히트맨 리본</strong>, SVT, <strong>규현</strong>, 뮤지컬, <strong>페그오</strong>, 월드 트리거, 나츠메 우인장 등</p>
+          <p><strong>3D, 뮤지컬의 경우</strong> 그냥 노래를 즐기거나 여유 될 때 멤버십 결제를 하는 정도입니다.</p>
+          <p>뮤지컬은 찍먹중인데 가격 이슈+보고 싶은 게 없음 이슈로 자주 보진 않습니다.</p>
           <p><strong>규현, 승관의 경우 나페스 합니다.</strong> 불편하시면 피해주세요.</p>
-          <p><strong>페그오의 경우</strong> 2026.04.15 기준 주장2 이드까지 완료 했습니다.</p>
         </div>
       </details>
 
       <details>
-        <summary>최애 / 드림 관련 메모</summary>
+        <summary>페그오 / 최애 관련</summary>
         <div class="detail-content">
-          <p>최애는 지오토, 암굴왕, 아서, 가웨인, 샤를마뉴 입니다.</p>
-          <p>지오토, 암굴왕, 샤를마뉴 외에는 겹드림 상관 없지만 굳이 받진 않습니다.</p>
-          <p><strong>지오토, 암굴왕 드림의 경우 동담불가 극온리입니다.</strong></p>
-          <p>월드 트리거, 나츠메 우인장은 오래 애정해온 작품입니다. 드림 있지만 언급은 거의 없습니다.</p>
+          <p><strong>페그오의 경우</strong> 2026.04.15 기준 주장2 이드까지 완료했습니다.</p>
+          <p>최애는 암굴왕, 카르나, 아서, 가웨인, 키르슈타리아, 세탄타, 샤를마뉴 입니다.</p>
+          <p>다 드림이 있지만 암굴왕, 샤를마뉴 외에는 겹드림 상관 X. 하지만 굳이 받진 않습니다.</p>
+          <p><strong>암굴왕 드림의 경우 동담불가 극온리입니다.</strong> 피하기는 알아서 피하지만 잦은 언급 시 트위터 기능 사용합니다.</p>
+          <p>월드 트리거, 나츠메 우인장의 경우 오랫동안 애정해온 작품입니다. 현재 리디북스에서 전권 소장중입니다.</p>
         </div>
       </details>
     </section>
@@ -247,16 +329,17 @@
       <p>기본적으로 좋아하는 걸 얘기하고 보는 계정입니다.</p>
       <p>커미션 넣는 걸 좋아해서 자주 넣고 있습니다. 하지만 자주 올리진 않습니다.</p>
       <p>화가 많은 편입니다. 욕도 많이 합니다. 불편하면 트위터 기능 사용해주세요.</p>
-      <p>탐라에 본인과 맞지 않는 것이 들어온다면 먼저 트위터 기능 사용 후 말씀해주세요.</p>
-      <p>제가 편하게 쓰는 계정이기에 간섭하지 말아주세요. 불편하면 먼저 피하시면 됩니다.</p>
-      <p><strong>파이널 판타지 14 장르의 경우</strong> 현재 계신 지인 외에는 메인으로 파시는 분들 절대 받지 않습니다.</p>
+      <p>탐라에 본인과 맞지 않은 것이 들어온다면 먼저 트위터 기능 사용 후에 저한테 말씀해주세요. 무작정 저한테 불편한 거 말씀하시면 저는 그냥 님을 보내드립니다.</p>
+      <p>제가 편하게 쓰는 계정이기에 간섭하지 말아주세요. 불편하면 님이 먼저 기능 써서 피하시면 됩니다. 했는데도 안되면 말씀하세요.</p>
+      <p><strong>파이널 판타지 14 장르의 경우</strong> 플레이하고 덕질하는 기간 동안 스트레스를 너무 많이 받았기 때문에 현재 계신 지인 분들 외에는 파판을 메인으로 파시는 분들 절대 받지 않습니다.</p>
+      <p>제가 모르고 팔로 했을 경우 블언블이나 블락 부탁드립니다.</p>
     </section>
 
     <section id="reject" class="section">
       <h2>받지 않는 드림</h2>
-      <p><strong>파이널 판타지 14 장르 드림러 아예 안 받습니다.</strong></p>
+      <p><strong>파이널 판타지 14 장르 드림러 아예 안받습니다.</strong></p>
       <p>명일방주 - 로고스, 파죰카</p>
-      <p>페이트 시리즈 - 아르주나(+얼터), 암굴왕, 아서 펜드래건, 가웨인, 샤를마뉴</p>
+      <p>페이트 시리즈 - 아르주나 (+얼터), 암굴왕, 아서 펜드래건, 가웨인, 샤를마뉴</p>
       <p>앙상블 스타즈 - 이츠키 슈, 카제하야 타츠미</p>
       <p>마법사의 약속 - 오즈</p>
       <p>상수리나무 아래 - 쿠아헬 리온</p>
@@ -270,22 +353,23 @@
 
     <section id="ng" class="section">
       <h2>NG</h2>
-      <p><strong>볼드체 외에는 직멘, 강요만 안 하면 상관 없습니다.</strong></p>
-      <p><strong>가스라이팅, BL, 드림지우기, 과도한 친목질</strong> 등은 NG입니다.</p>
-      <p><strong>가스라이팅:</strong> 관련 요소가 있는 드림, CP를 파시면 찾아오지 말아주세요.</p>
-      <p><strong>BL:</strong> 학생 때 트라우마가 생겨 좋아하지 않습니다. 1차 제외, 직멘 시 블락합니다.</p>
-      <p><strong>드림지우기:</strong> 이미 많이 겪어서 더 이상 보고 싶지 않습니다.</p>
-      <p><strong>드림 논란:</strong> 파쿠리, 뒷담, 견제 등 드림판 논란 전부 언급 자제해주세요.</p>
+      <p><strong>볼드체 외에는 직멘, 강요만 안하면 상관 X</strong></p>
+      <p><strong>가스라이팅, BL, 드림지우기, 호요버스, 버튜버, 무례한 것, 과도한 친목질</strong> 등 NG가 있습니다.</p>
+      <p><strong>가스라이팅:</strong> 어릴 적부터 당해와서 보는 게 정말 힘듭니다. 단어 보는 것조차 힘들어합니다. 관련 요소가 있는 드림, CP를 파시면 찾아오지 말아주세요.</p>
+      <p><strong>BL:</strong> 학생 때 2차 연성 보고 트라우마가 크게 생겨서 좋아하지 않습니다. 1차 제외. 직멘시 블락합니다.</p>
+      <p><strong>드림지우기:</strong> 드림 파면서 드림지우기, 견제, 대리견제 다 당해봤습니다. 그만 보고싶습니다.</p>
+      <p><strong>드림 논란:</strong> 파쿠리, 뒷담, 견제 등 드림판의 논란 전부 신경 쓰지 않습니다. 저에게 언급도 자제해주세요.</p>
     </section>
 
     <div class="footer-space"></div>
   </div>
 
-  <audio id="bgm" loop>
-    <source src="bgm.mp3" type="audio/mpeg" />
-  </audio>
+  <div id="youtube-player-wrap"></div>
 
   <script>
+    let musicOn = false;
+    const videoId = "VJll_u405B0";
+
     function showSection(id) {
       document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
@@ -295,13 +379,24 @@
     }
 
     function toggleMusic() {
-      const bgm = document.getElementById('bgm');
-      if (bgm.paused) {
-        bgm.play().catch(() => {
-          alert('브라우저에서 자동 재생이 막혀 있을 수 있어요. 버튼을 한 번 더 눌러보세요.');
-        });
+      const wrap = document.getElementById('youtube-player-wrap');
+
+      if (!musicOn) {
+        wrap.innerHTML = `
+          <iframe
+            width="1"
+            height="1"
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
+            title="BGM Player"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        `;
+        musicOn = true;
       } else {
-        bgm.pause();
+        wrap.innerHTML = "";
+        musicOn = false;
       }
     }
   </script>
