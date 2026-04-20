@@ -7,19 +7,30 @@
 
 <style>
 body {
+    <style>
+html, body {
     margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
     font-family: 'Pretendard', sans-serif;
-    background: linear-gradient(#cfe8ff, #ffffff);
     color: #333;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 35%),
+        linear-gradient(180deg, #cfe8ff 0%, #eaf4ff 35%, #f8fbff 70%, #ffffff 100%);
+    background-attachment: fixed;
 }
 
 header {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px 40px;
 }
 
 h1 {
     font-size: 32px;
+    margin-bottom: 10px;
 }
 
 nav {
@@ -30,22 +41,25 @@ nav {
     flex-wrap: wrap;
 }
 
-nav button {
+nav button,
+.music-btn {
     padding: 10px 16px;
     border-radius: 20px;
     border: none;
-    background: white;
+    background: rgba(255,255,255,0.9);
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .section {
     display: none;
     max-width: 800px;
-    margin: auto;
-    background: white;
+    margin: 0 auto 30px;
+    background: rgba(255,255,255,0.92);
     padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    line-height: 1.8;
 }
 
 .active {
@@ -59,9 +73,19 @@ details {
 summary {
     cursor: pointer;
     font-weight: bold;
-    padding: 10px;
+    padding: 10px 14px;
     background: #eef6ff;
     border-radius: 10px;
+}
+
+.top-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+</style>
 }
 </style>
 </head>
